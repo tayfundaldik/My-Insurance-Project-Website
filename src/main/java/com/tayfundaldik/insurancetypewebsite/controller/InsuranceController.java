@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tayfundaldik.insurancetypewebsite.model.InsurancePolicy;
@@ -41,9 +42,8 @@ public class InsuranceController {
     }
 
 	@PutMapping("/{id}")
-	public InsurancePolicy updatePolicy(@PathVariable Long id, @RequestBody InsurancePolicy policy,String name,String insuranceType) {
-        policy.setName(name);
-        policy.setInsuranceType(insuranceType);
+	public InsurancePolicy updatePolicy(@PathVariable Long id, @RequestBody InsurancePolicy policy) {
+		policy.setId(id);
         return insuranceService.savePolicy(policy);
         }
 

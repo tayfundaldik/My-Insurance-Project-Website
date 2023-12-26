@@ -26,7 +26,7 @@ public class InsuranceService {
     public InsurancePolicy savePolicy(InsurancePolicy policy) {
         return policyRepository.save(policy);
     }
-
+   
     public void deletePolicy(Long id) {
         policyRepository.deleteById(id);
     }
